@@ -1,0 +1,26 @@
+%% Initialisation
+clear
+% Initialise grid
+g = zeros(3,3);
+g(2,2) = 3;
+% Initialise variables
+head_pos = 5;
+fruit_num = 1;
+body_num = 2;
+head_num = 3;
+snake_length = 1;
+finished = false;
+
+while(~fin)
+    % Place a fruit
+    [free_spots] = FindEmptyPositions(g);
+    if ~isempty(free_spots)
+        g(free_spots(randi(length(free_spots), 1))) = 1;
+    end
+    % Check if the worm head is next to a fruit
+    [g, head_pos, snake_length] = MoveToFruit(g, head_pos, snake_length);
+    % Stop if the length of the snake is 9
+    if snake_length == 9
+        finished = true;
+    end
+end
