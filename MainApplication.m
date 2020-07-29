@@ -21,5 +21,25 @@ g(free_spots(randi(length(free_spots), 1))) = 1;
 for i = 1:9
     if g(i) == 3
         % Check all around to look for fruit
+        if i > 3 % look left
+            if g(i - 3) == 1
+                
+            end
+        end
+        if i < 7 % look right
+            if g(i + 3) == 1
+                
+            end
+        end
+        if rem(i - 1, 3) > 0 % look up
+            if g(i - 1) == 1
+                
+            end
+        end
+        if rem(i, 3) > 0 % look down
+            if g(i + 1) == 1
+                
+            end
+        end
     end
 end
